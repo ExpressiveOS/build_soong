@@ -1525,6 +1525,11 @@ func (c *config) BuildKeys() string {
 	if defaultCert == "" || defaultCert == filepath.Join(testKeyDir, "testkey") {
 		return "test-keys"
 	}
+	if strings.HasPrefix(defaultCert, "vendor/expressiveos-priv/") {
+		return "release-keys"
+	}
+	// The old prefix goes in 1.2: through 1.1 a tree whose keys are still
+	// under vendor/evolution-priv/ keeps building release-keys.
 	if strings.HasPrefix(defaultCert, "vendor/evolution-priv/") {
 		return "release-keys"
 	}
