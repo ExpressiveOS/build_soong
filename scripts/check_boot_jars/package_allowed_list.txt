@@ -262,6 +262,7 @@ org\.ifaa\.aidl.*
 
 # Evolution X adds
 org.evolution.*
+org.expressiveos.*
 
 ###################################################
 # Camera Extensions
