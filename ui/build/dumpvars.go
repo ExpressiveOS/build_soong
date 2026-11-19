@@ -40,6 +40,8 @@ const (
 var sisoStringVars = []string{
 	"JAVA_HOME",
 	"OUT_DIR",
+	"WITH_GMS",
+	"PRODUCT_SOONG_NAMESPACES",
 	"RBE_container_image",
 	"RELEASE_BUILD_CLANG_VERSION",
 }
@@ -182,6 +184,9 @@ func dumpMakeVars(ctx Context, config Config, goals, vars []string, tmpDir strin
 var BannerVars = []string{
 	"PLATFORM_VERSION_CODENAME",
 	"PLATFORM_VERSION",
+	"PLATFORM_SECURITY_PATCH",
+	"EXPRESSIVE_BUILD_VERSION",
+	"EXPRESSIVE_MODVERSION",
 	"PRODUCT_SOURCE_ROOT_DIRS",
 	"TARGET_PRODUCT",
 	"TARGET_BUILD_VARIANT",
@@ -317,7 +322,6 @@ func runMakeProductConfig(ctx Context, config Config) {
 		"HOST_CROSS_ARCH",
 		"HOST_CROSS_2ND_ARCH",
 		"HOST_BUILD_TYPE",
-		"PRODUCT_SOONG_NAMESPACES",
 
 		"DEFAULT_WARNING_BUILD_MODULE_TYPES",
 		"DEFAULT_ERROR_BUILD_MODULE_TYPES",
