@@ -119,6 +119,7 @@ def parse_args():
                         f"{config['Platform_version_name']} {config['BuildId']} " \
                         f"{config['BuildNumber']} {config['BuildVersionTags']}"
   config["BuildSystemDesc"] = config["BuildDesc"]
+  config["BuildDisplayId"] = ""
 
   config["PlatformPreviewSdkFingerprint"] = args.platform_preview_sdk_fingerprint_file.read().strip()
 
@@ -223,7 +224,9 @@ def generate_build_info(args):
   print(f"ro.build.uuid?={config['BuildUUID']}")
 
   # ro.build.display.id is shown under Settings -> About Phone
-  if config["BuildVariant"] == "user":
+  if config.get("BuildDisplayId"):
+    print(f"ro.build.display.id?={config['BuildDisplayId']}")
+  elif config["BuildVariant"] == "user":
     # User builds should show:
     # release build number or branch.buld_number non-release builds
 
